@@ -34,7 +34,7 @@ class Dog
     row = DB[:conn].execute(sql).first
     Dog.new(id: row[0], name: row[1], breed: row[2])
   end
-  
+
   def save
     if !id
       sql = "INSERT INTO dogs (name, breed) VALUES (?, ?)"
@@ -49,5 +49,5 @@ class Dog
     sql = "UPDATE dogs SET name = ?, breed = ? WHERE id = ?"
     DB[:conn].execute(sql, self.name, self.breed, self.id)
   end
-  
+
 end
