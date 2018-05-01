@@ -43,6 +43,7 @@ class Dog
     else
       update
     end
+    self
   end
 
   def update
