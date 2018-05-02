@@ -1,5 +1,6 @@
 class Dog
   attr_reader :id, :name, :breed
+  attr_writer :name, :breed
 
   def initialize (id: nil, name:, breed:)
     @id = id
@@ -47,7 +48,6 @@ class Dog
   end
 
   def update
-    binding.pry
     sql = "UPDATE dogs SET name = ?, breed = ? WHERE id = ?"
     DB[:conn].execute(sql, self.name, self.breed, self.id)
   end
