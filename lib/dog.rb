@@ -27,7 +27,6 @@ class Dog
   def self.create (name:, breed:)
     new_dog = Dog.new(name: name, breed: breed)
     new_dog.save
-    new_dog
   end
 
   def self.find_by_id (id)
@@ -60,6 +59,7 @@ class Dog
     else
       dog = self.new_from_db(row.first)
     end
+    dog
   end
 
   def self.new_from_db(row)
