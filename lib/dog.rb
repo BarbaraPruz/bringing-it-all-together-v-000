@@ -57,7 +57,12 @@ class Dog
     if row.empty?
       dog = self.create(name: name, breed: breed)
     else
-      dog = Dog.new(id: row[0][0], name: row[0][1], breed: row[0][2])
+      dog = self.new_from_db(row.first)
     end
   end
+
+  def self.new_from_db(row)
+    Dog.new(id: row[0], name: row[1], breed: row[2])
+  end
+  
 end
